@@ -11,7 +11,6 @@ namespace MyCollection
         object Value { get; set; }
         int Index { get; set; }
         IforItem Next { get; set; }
-
     }
 
     public interface Actions
