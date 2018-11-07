@@ -69,7 +69,6 @@ namespace MyCollection
                 }
             } while (current.Next != null);
 
-
         }
         public void PrintAll()
         {
@@ -95,8 +94,7 @@ namespace MyCollection
 
         public void Remove(int index)
         {
-            var current = First;
-            bool last = false;
+            var current = First;            
 
             while (current.Next != null)
             {
@@ -126,7 +124,6 @@ namespace MyCollection
                     current.Next.Index = current.Next.Index - 1;
                 }
                 current = current.Next;
-
             }
 
         }
@@ -154,11 +151,9 @@ namespace MyCollection
             collection.Add(item3);
             collection.Add(item4);
             collection.Add(item5);
-
             collection.PrintAll();
-
             Console.WriteLine();
-            collection.Remove(1);            
+            collection.Remove(4);           
             Console.WriteLine();
             collection.PrintAll();
             Console.ReadLine();
