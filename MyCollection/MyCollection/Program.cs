@@ -98,6 +98,21 @@ namespace MyCollection
 
             while (current.Next != null)
             {
+                if(index == 0)
+                {
+                    current = current.Next;
+                    First = current;
+                    while(current.Next != null)
+                    {
+                        current.Index = current.Index - 1;
+                        current = current.Next;
+                        if(current.Next == null)
+                        {
+                            current.Index = current.Index - 1;
+                        }
+                    }
+                    break;
+                }
                 if (current.Next == null)
                 {
                     while (current.Next != null)
@@ -153,8 +168,15 @@ namespace MyCollection
             collection.Add(item5);
             collection.PrintAll();
             Console.WriteLine();
-            collection.Remove(4);           
+            collection.Remove(0);  
+            
             Console.WriteLine();
+            collection.PrintAll();
+            collection.Remove(0);
+            Console.WriteLine();
+            collection.PrintAll();
+            Console.WriteLine();
+            collection.Remove(1);
             collection.PrintAll();
             Console.ReadLine();
 
