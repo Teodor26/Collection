@@ -11,7 +11,6 @@ namespace MyCollection
         object Value { get; set; }
         int Index { get; set; }
         IforItem Next { get; set; }
-
     }
 
     public interface Actions
@@ -21,6 +20,7 @@ namespace MyCollection
         void GetValue(int index);
         void PrintAll();
     }
+
     public class Item : IforItem
     {
         public object Value { get; set; }
@@ -70,7 +70,6 @@ namespace MyCollection
                 }
             } while (current.Next != null);
 
-
         }
         public void PrintAll()
         {
@@ -78,7 +77,6 @@ namespace MyCollection
             {
                 Console.WriteLine("No Values");
             }
-
             else
             {
                 var current = First;
@@ -98,10 +96,24 @@ namespace MyCollection
         public void Remove(int index)
         {
             var current = First;
-            bool last = false;
 
             while (current.Next != null)
             {
+                if (index == 0)
+                {
+                    current = current.Next;
+                    First = current;
+                    while (current.Next != null)
+                    {
+                        current.Index = current.Index - 1;
+                        current = current.Next;
+                        if (current.Next == null)
+                        {
+                            current.Index = current.Index - 1;
+                        }
+                    }
+                    break;
+                }
                 if (current.Next == null)
                 {
                     while (current.Next != null)
@@ -128,7 +140,6 @@ namespace MyCollection
                     current.Next.Index = current.Next.Index - 1;
                 }
                 current = current.Next;
-
             }
 
         }
@@ -156,12 +167,17 @@ namespace MyCollection
             collection.Add(item3);
             collection.Add(item4);
             collection.Add(item5);
-
             collection.PrintAll();
+            Console.WriteLine();
+            collection.Remove(0);
 
             Console.WriteLine();
-            collection.Remove(1);            
+            collection.PrintAll();
+            collection.Remove(0);
             Console.WriteLine();
+            collection.PrintAll();
+            Console.WriteLine();
+            collection.Remove(1);
             collection.PrintAll();
             Console.ReadLine();
 
