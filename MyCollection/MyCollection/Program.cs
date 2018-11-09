@@ -78,6 +78,7 @@ namespace MyCollection
             {
                 Console.WriteLine("No Values");
             }
+
             else
             {
                 var current = First;
